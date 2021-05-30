@@ -1,0 +1,43 @@
+.logo {
+    display: flex;
+}
+
+.logo__lines {
+    margin-top: auto;
+    margin-bottom: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.logo__name {
+    font-size: 40px;
+}
+
+.logo__lines:nth-child(1) {
+    margin-right: 11px;
+}
+
+.logo__lines:nth-last-child(1) {
+    margin-left: 11px;  
+}
+
+.logo__lines span {
+    width: 95px;
+    height: 2px;
+
+    background-color: var(--white);
+}
+
+.logo__lines:nth-child(1) span:nth-child(1) {
+    width: 50px;
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+
+.logo__lines:nth-last-child(1) span:nth-child(1) {
+    width: 50px;
+    margin-bottom: 10px;
+}

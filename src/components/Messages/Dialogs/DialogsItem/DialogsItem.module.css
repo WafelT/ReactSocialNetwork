@@ -1,0 +1,24 @@
+.item {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 70px;
+}
+
+.user__image {
+    width: 83px;
+    height: 83px;
+
+    margin-right: 35px;
+
+    border-radius: 50%;
+}
+
+.message {
+    display: inline;
+    max-width: 418px;
+
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #000;
+}

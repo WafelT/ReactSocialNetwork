@@ -1,0 +1,29 @@
+.wrapper {
+    margin-bottom: 65px;
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    width: 214px;
+    height: 214px;
+    margin-right: 35px;
+}
+
+.information {
+    font-size: 20px;
+}
+
+.user__name {
+    margin-bottom: 28px;
+
+    font-size: 30px;
+}
+
+.item {
+    margin-bottom: 7px;
+}
+
+.item_attribute {
+    font-weight: 600;
+}

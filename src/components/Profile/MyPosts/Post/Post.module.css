@@ -1,0 +1,41 @@
+.post {
+    margin-bottom: 67px;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    
+    margin-left: 20px;
+}
+
+.user {
+    margin: 5px 0 0 0;
+
+    font-size: 20px;
+}
+
+.date {
+    font-size: 10px;
+    font-weight: 700;
+    color: #707070;
+}
+
+.post__message {
+    width: 570px;
+    margin-top: 20px;
+
+    font-size: 20px;
+    font-weight: 600;
+}

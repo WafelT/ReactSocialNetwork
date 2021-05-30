@@ -1,0 +1,11 @@
+.header {
+  grid-area: header;
+  background-color: var(--mainColor);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--white);
+  font-size: 24px;
+}

@@ -1,0 +1,156 @@
+.wrapper__main {
+    max-width: 602px;
+    margin: 78px 0px 0px 161px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper__input {
+    max-width: 572px;
+    margin-bottom: 45px;
+    padding: 14px 20px;
+
+    display: flex;
+    align-items: center;
+    background-color: #eaeaea;
+
+    border-radius: 20px;
+}
+
+.search {
+    width: 100%;
+    margin-left: 14px;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    background-color: transparent;
+}
+
+.search::placeholder {
+    color: #A7A7A7;
+}
+
+.btn__showMore {
+    padding: 12px 49px;
+    margin-top: 57px;
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: var(--mainColor);
+    color : var(--white);
+
+    border-radius: 5px;
+    cursor: pointer;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    transition: .4s linear;
+}
+
+.btn__showMore:hover {
+    background-color: var(--mainHover);
+}
+
+
+/* FoundUser styles */
+.wrapper { 
+    margin-bottom: 40px;
+    max-width: 602px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 88px;
+    height: 88px;
+
+    border-radius: 50%;
+}
+
+.wrapper__btn {
+    display: flex;
+    margin: auto 0px auto 0px;
+}
+
+.wrapper__name {
+    margin: auto 0px auto 23px;
+}
+
+.user__name {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn {
+    padding: 6px 45px;
+    margin-top: 10px;
+
+    background-color: var(--mainColor);
+    color : var(--white);
+
+    border-radius: 5px;
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: .4s linear;
+}
+
+.btn:hover {
+    background-color: var(--mainHover);
+}
+
+.location {
+    margin-top: 14px;
+    
+
+    text-align: right;
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #707070;
+}
+
+.pageNumberWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    display: flex;
+    
+    list-style: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.pageNumber {
+    padding: 8px 15px;
+    margin-right: 7px;
+    
+    background-color: var(--mainColor);
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.pageNumber:hover {
+    background-color: var(--mainHover);
+}
+
+.pageNumberActive {
+    padding: 8px 15px;
+    margin-right: 7px;
+    
+    background-color: var(--mainActive);
+    border-radius: 5px;
+
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
