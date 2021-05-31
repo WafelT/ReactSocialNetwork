@@ -1,13 +1,16 @@
-import axios from "axios";
+import * as axios from "axios";
 
-let instance = axios.create({
+const instance = axios.create({
     witCredentials: true,
     baseURL : 'https://social-network.samuraijs.com/api/1.0/',
+    headers : {
+        'API' : 'cea22af7-b56a-4565-9d35-1255285b109f'
+    }
 });
 
-let usersAPI = {
+export let usersAPI = {
     getUsers(currentPage = 1, pageSize = 5) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+        return instance.get('users?page=' + currentPage + '&count=' + pageSize)
         .then(response => {
             return response.data;
         })

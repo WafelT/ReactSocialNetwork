@@ -101,6 +101,13 @@
     transition: .4s linear;
 }
 
+.btn:disabled {
+    background-color: #fff;
+    color: var(--mainColor);
+
+    border: 1px solid var(--mainColor);
+}
+
 .btn:hover {
     background-color: var(--mainHover);
 }

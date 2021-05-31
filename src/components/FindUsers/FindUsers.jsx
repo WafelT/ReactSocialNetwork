@@ -3,7 +3,6 @@ import styles from './FindUsers.module.css';
 import defaultUserAvatar from '../../assets/images/defaultUserAvatar.png'
 import Preloader from '../commons/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-import { usersAPI } from '../../api/api';
 import axios from 'axios';
 
 let FindUsers = (props) => {
@@ -38,11 +37,12 @@ let FindUsers = (props) => {
                                 <img className={styles.avatar} src={ foundUser.photos.small != null ? foundUser.photos.small : defaultUserAvatar } />
                             </NavLink>
                             <div className={styles.wrapper__name}>
-                                <h2 className={styles.user__name}>{foundUser.name}</h2>
+                                <NavLink to={`/profile/${foundUser.id}`} >
+                                    <h2 className={styles.user__name}>{foundUser.name}</h2>
+                                </NavLink>
                                 { foundUser.followed 
-                                    ? <button disabled={props.followingDisable(true)} className={styles.btn} onClick={ () => 
+                                    ? <button className={styles.btn} onClick={ () => 
                                         { 
-                                            props.followingDisable(true);
                                             // Ajax request for unFollow
                                             axios.delete('https://social-network.samuraijs.com/api/1.0/follow/' + foundUser.id, {
                                                 withCredentials : true,
@@ -51,12 +51,10 @@ let FindUsers = (props) => {
                                                 if(response.data.resultCode == 0 ) {
                                                     props.unFollow(foundUser.id);
                                                 } 
-                                                props.followingDisable(false);
                                             });
                                     }}>unfollow</button> 
-                                    : <button disabled={props.followingDisable(true)} className={styles.btn} onClick={ () => 
-                                        {
-                                            props.followingDisable(true);
+                                    : <button className={styles.btn} onClick={ () => 
+                                        { 
                                             // Ajax request for follow
                                             axios.post('https://social-network.samuraijs.com/api/1.0/follow/' + foundUser.id, {}, {
                                                 withCredentials : true,
@@ -65,7 +63,6 @@ let FindUsers = (props) => {
                                                 if(response.data.resultCode == 0 ) {
                                                     props.follow(foundUser.id);
                                                 }
-                                                props.followingDisable(false);
                                             });
                                      }}>follow</button>
                                 }

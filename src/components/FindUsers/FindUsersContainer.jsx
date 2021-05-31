@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, setUsers, unFollow, setCurrentPage, setTotalUsersCount, togglePreloader, followingDisable } from '../../redux/findUsersReducer';
+import { follow, setUsers, unFollow, setCurrentPage, setTotalUsersCount, togglePreloader, toggleFollowingBtnDisabling } from '../../redux/findUsersReducer';
 import FindUsers from './FindUsers';
 
 class FindUsersContainer extends React.Component {
@@ -35,7 +35,8 @@ class FindUsersContainer extends React.Component {
                 currentPage={this.props.currentPage} 
                 onPageChange={this.onPageChange} 
                 isFetching={this.props.isFetching}
-                followingDisable={this.props.followingDisable}
+                toggleFollowingBtnDisabling={this.props.toggleFollowingBtnDisabling}
+                followingBtnDisabling={this.props.followingBtnDisabling}
             />
         </>
     }
@@ -48,8 +49,8 @@ let mapStateToProps = (state) => {
         pageSize : state.findUsersPage.pageSize, 
         currentPage : state.findUsersPage.currentPage,
         isFetching : state.findUsersPage.isFetching,
-        followingDisable : state.findUsersPage.followingDisable,
+        followingBtnDisabling : state.findUsersPage.followingBtnDisabling,
     }
 }
 
-export default connect(mapStateToProps, { follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, togglePreloader, followingDisable })(FindUsersContainer);
+export default connect(mapStateToProps, { follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, togglePreloader, toggleFollowingBtnDisabling })(FindUsersContainer);

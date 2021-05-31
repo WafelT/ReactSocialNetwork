@@ -4,7 +4,7 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_PRELOADER = 'TOGGLE_PRELOADER';
-const FOLLOWING_DISABLE = 'FOLLOWING_DISABLE';
+const FOLLOWING_BTN_DISABLING = 'FOLLOWING_BTN_DISABLING';
 
 let initialState = {
     foundUsers : [],
@@ -12,7 +12,7 @@ let initialState = {
     totalUsersCount : 0,
     currentPage : 1,
     isFetching : true,
-    followingDisable : false,
+    followingBtnDisabling : false,
 };
 
 const findUsersReducer = (state = initialState, action) => {
@@ -61,8 +61,8 @@ const findUsersReducer = (state = initialState, action) => {
             return { ...state, isFetching : action.isFetching }
         }
 
-        case FOLLOWING_DISABLE : {
-            return { ...state, followingDisable : action.disabled }
+        case FOLLOWING_BTN_DISABLING : {
+            return { ...state, followingBtnDisabling : action.disabled }
         }
 
         default : 
@@ -100,9 +100,9 @@ export let togglePreloader = (isFetching) => ({
     isFetching
 });
 
-export let followingDisable = (disabled) => ({
-    type : FOLLOWING_DISABLE,
-    disabled
+export let toggleFollowingBtnDisabling = (disabled) => ({
+    type : FOLLOWING_BTN_DISABLING,
+    disabled,
 });
 
 export default findUsersReducer;
