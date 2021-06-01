@@ -101,11 +101,11 @@
     transition: .4s linear;
 }
 
-.btn:disabled {
-    background-color: #fff;
-    color: var(--mainColor);
+.btn:disabled, .btn:hover:disabled {
+    background-color: #337dad;
 
-    border: 1px solid var(--mainColor);
+    transition: none;
+    transform: translateY(2px);
 }
 
 .btn:hover {

@@ -12,7 +12,7 @@ let initialState = {
     totalUsersCount : 0,
     currentPage : 1,
     isFetching : true,
-    followingBtnDisabling : false,
+    followingBtnDisabling : [],
 };
 
 const findUsersReducer = (state = initialState, action) => {
@@ -62,7 +62,12 @@ const findUsersReducer = (state = initialState, action) => {
         }
 
         case FOLLOWING_BTN_DISABLING : {
-            return { ...state, followingBtnDisabling : action.disabled }
+            return { 
+                ...state,
+                followingBtnDisabling : action.disabled 
+                    ? [...state.followingBtnDisabling, action.userId]
+                    : state.followingBtnDisabling.filter(id => id != action.userId)
+                }
         }
 
         default : 
@@ -100,9 +105,10 @@ export let togglePreloader = (isFetching) => ({
     isFetching
 });
 
-export let toggleFollowingBtnDisabling = (disabled) => ({
+export let toggleFollowingBtnDisabling = (disabled, userId) => ({
     type : FOLLOWING_BTN_DISABLING,
     disabled,
+    userId,
 });
 
 export default findUsersReducer;
