@@ -1,30 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { usersAPI } from '../../api/api';
-import { follow, setUsers, unFollow, setCurrentPage, setTotalUsersCount, togglePreloader, toggleFollowingBtnDisabling } from '../../redux/findUsersReducer';
+import { follow, unFollow, setCurrentPage, toggleFollowingBtnDisabling, getUsersThunk, followThunk, unFollowThunk } from '../../redux/findUsersReducer';
 import FindUsers from './FindUsers';
 
 class FindUsersContainer extends React.Component {
     
     componentDidMount() {
-        this.props.togglePreloader(true);
-
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.togglePreloader(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
-        });
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChange = (pageNumber) => {
+        this.props.getUsersThunk(pageNumber, this.props.pageSize);
         this.props.setCurrentPage(pageNumber);
-        this.props.setUsers([]);
-        this.props.togglePreloader(true);
-
-        usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-            this.props.togglePreloader(false);
-            this.props.setUsers(data.items);
-        });
     }
 
     render() {
@@ -40,6 +27,8 @@ class FindUsersContainer extends React.Component {
                 isFetching={this.props.isFetching}
                 toggleFollowingBtnDisabling={this.props.toggleFollowingBtnDisabling}
                 followingBtnDisabling={this.props.followingBtnDisabling}
+                followThunk={this.props.followThunk}
+                unFollowThunk={this.props.unFollowThunk}
             />
         </>
     }
@@ -48,7 +37,7 @@ class FindUsersContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         foundUsers : state.findUsersPage.foundUsers,
-        totalUsersCount : state.findUsersPage.totalUsersCount, 
+        totalUsersCount : state.findUsersPage.totalUsersCount,
         pageSize : state.findUsersPage.pageSize, 
         currentPage : state.findUsersPage.currentPage,
         isFetching : state.findUsersPage.isFetching,
@@ -56,4 +45,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, togglePreloader, toggleFollowingBtnDisabling })(FindUsersContainer);
+export default connect(mapStateToProps, { follow, unFollow, setCurrentPage, toggleFollowingBtnDisabling, getUsersThunk, followThunk, unFollowThunk})(FindUsersContainer);

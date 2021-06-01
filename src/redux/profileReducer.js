@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const CHANGE_INPUT_POST_TEXT = 'CHANGE-INPUT-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -56,5 +58,16 @@ export let changeInputPostTextActionCreator = (text) => ({
     type : CHANGE_INPUT_POST_TEXT,
     symbol : text,
 });
+
+export const profileThunk = (userId) => {
+    return (dispatch) => {
+        if (!userId) {
+            userId = 17404;
+        }
+        usersAPI.getProfile(userId).then(data => {
+            dispatch(setUserProfile(data));
+        });
+    }
+}
 
 export default profileReducer;

@@ -42,28 +42,13 @@ let FindUsers = (props) => {
                                     <h2 className={styles.user__name}>{foundUser.name}</h2>
                                 </NavLink>
                                 { foundUser.followed 
-                                    ? <button disabled={props.followingBtnDisabling.some(id => id === foundUser)} className={styles.btn} onClick={ () => 
-                                        { 
-                                            // Ajax request for unFollow
-                                            props.toggleFollowingBtnDisabling(true, foundUser.id);
-                                            usersAPI.unFollow(foundUser.id).then(data => {
-                                                if(data.resultCode === 0 ) {
-                                                    props.unFollow(foundUser.id);
-                                                } 
-                                                props.toggleFollowingBtnDisabling(false, foundUser.id);
-                                            });
-                                        }}>unfollow</button> 
-                                        : <button disabled={props.followingBtnDisabling.some(id => id === foundUser.id)} className={styles.btn} onClick={ () => 
-                                            { 
-                                            props.toggleFollowingBtnDisabling(true, foundUser.id);
-                                            // Ajax request for follow
-                                            usersAPI.follow(foundUser.id).then(data => {
-                                                if(data.resultCode === 0 ) {
-                                                    props.follow(foundUser.id);
-                                                }
-                                                props.toggleFollowingBtnDisabling(false, foundUser.id)
-                                            });
-                                        }}>follow</button>
+                                    ? <button disabled={props.followingBtnDisabling.some(id => id === foundUser)} className={styles.btn} 
+                                        onClick={ () => { props.unFollowThunk(foundUser.id) }
+                                    }>unfollow</button> 
+                                    
+                                    : <button disabled={props.followingBtnDisabling.some(id => id === foundUser.id)} className={styles.btn} 
+                                        onClick={ () => { props.followThunk(foundUser.id)}   
+                                    }>follow</button>
                                 }
                             </div>
                         </div>

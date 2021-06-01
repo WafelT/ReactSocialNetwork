@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -110,5 +112,44 @@ export let toggleFollowingBtnDisabling = (disabled, userId) => ({
     disabled,
     userId,
 });
+
+export const getUsersThunk = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(setUsers([]));
+        dispatch(togglePreloader(true));
+    
+        usersAPI.getUsers(currentPage, pageSize).then(data => {
+            dispatch(togglePreloader(false));
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+        });
+    }
+}
+
+export const followThunk = (userId) => {
+    return (dispatch) => {
+       dispatch(toggleFollowingBtnDisabling(true, userId));
+       
+       usersAPI.follow(userId).then(data => {
+           if(data.resultCode === 0 ) {
+               dispatch(follow(userId));
+           }
+           dispatch(toggleFollowingBtnDisabling(false, userId));
+       });
+    }
+}
+
+export const unFollowThunk = (userId) => {
+    return (dispatch) => {
+       dispatch(toggleFollowingBtnDisabling(true, userId));
+
+       usersAPI.unFollow(userId).then(data => {
+           if(data.resultCode === 0 ) {
+               dispatch(unFollow(userId));
+           }
+           dispatch(toggleFollowingBtnDisabling(false, userId));
+       });
+    }
+}
 
 export default findUsersReducer;
