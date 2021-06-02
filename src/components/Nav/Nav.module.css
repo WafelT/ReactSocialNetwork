@@ -1,8 +1,8 @@
 .nav {
-  grid-area: nav;
+  margin-right: 20px;
   padding: 40px 64px 40px 40px;
   
-  height: 100%;
+  min-height: 100vh;
   background-color: var(--mainColor);
 
   position: relative;

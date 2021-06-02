@@ -1,4 +1,6 @@
 .wrapper {
+    margin-top: 50px;
+
     display: block;
     margin-left: auto;
 }

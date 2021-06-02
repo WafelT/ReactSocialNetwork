@@ -1,5 +1,7 @@
 .header {
-  grid-area: header;
+  padding-top: 33px;
+  padding-bottom: 33px;
+  margin-bottom: 20px;
   background-color: var(--mainColor);
 
   display: flex;
