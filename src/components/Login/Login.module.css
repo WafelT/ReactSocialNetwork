@@ -1,0 +1,53 @@
+.wrapper {
+    display: block;
+    margin-left: auto;
+}
+
+.loginNaming {
+    margin-bottom: 20px;
+    
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form {
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.input {
+    margin-bottom: 20px;
+    padding: 15px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border: 1px solid #212121;
+    border-radius: 10px;
+}
+
+.btn {
+    padding: 14px 42px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: block;
+
+    background-color: var(--mainColor);
+    color: var(--white);
+
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.btn:hover {
+    background-color: var(--mainHover);
+}

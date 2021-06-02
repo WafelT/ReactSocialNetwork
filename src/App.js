@@ -10,6 +10,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import FindUsersContainer from './components/FindUsers/FindUsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import Login from './components/Login/Login';
 
 const App = (props) => {
     
@@ -25,6 +26,7 @@ const App = (props) => {
                     <Route path="/news" component={ () => <News /> } />
                     <Route path="/music" component={ () => <Music /> } />
                     <Route path="/settings" component={ () => <Settings /> } />
+                    <Route path="/login" component={ () => <Login /> } />
                 </div>
             </div>
         </BrowserRouter>
