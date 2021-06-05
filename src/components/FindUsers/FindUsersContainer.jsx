@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { follow, unFollow, setCurrentPage, toggleFollowingBtnDisabling, getUsersThunk, followThunk, unFollowThunk } from '../../redux/findUsersReducer';
 import FindUsers from './FindUsers';
 
@@ -45,4 +46,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { follow, unFollow, setCurrentPage, toggleFollowingBtnDisabling, getUsersThunk, followThunk, unFollowThunk})(FindUsersContainer);
+export default compose(
+    connect(mapStateToProps, { follow, unFollow, setCurrentPage, toggleFollowingBtnDisabling, getUsersThunk, followThunk, unFollowThunk}),
+)(FindUsersContainer);

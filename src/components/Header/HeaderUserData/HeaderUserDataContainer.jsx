@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { authThunk, setAuthUserData } from '../../../redux/authReducer';
 import HeaderUserData from './HeaderUserData';
 
@@ -19,4 +20,6 @@ let mapStateToProps = (state) => ({
     login : state.auth.login
 });
 
-export default connect(mapStateToProps, {setAuthUserData, authThunk})(HeaderUserDataContainer);
+export default compose(
+    connect(mapStateToProps, {setAuthUserData, authThunk}),
+)(HeaderUserDataContainer);
