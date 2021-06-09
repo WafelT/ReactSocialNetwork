@@ -2,6 +2,7 @@ import React from 'react';
 import Preloader from '../../commons/Preloader/Preloader';
 import styles from './AboutUser.module.css';
 import defaultUserAvatar from '../../../assets/images/defaultUserAvatar.png';
+import AboutUserStatus from './AboutUserStatus';
 
 const AboutUser = (props) => {
     
@@ -14,9 +15,9 @@ const AboutUser = (props) => {
             <img src={props.profile.photos.large != null ? props.profile.photos.large : defaultUserAvatar} className={styles.image} alt=""/>
             <div className={styles.information}>
                 <h1 className={styles.user__name}>{props.profile.fullName}</h1>
-                <p className={styles.item}><span className={styles.item_attribute}>Have work: </span>{props.profile.lookingForAJob === true ? 'No' : 'Yes'}</p>
-                <p className={styles.item}><span className={styles.item_attribute}>About me: </span>{props.profile.aboutMe}</p>
-                <p className={styles.item}><span className={styles.item_attribute}>Github: </span>{props.profile.contacts.github}</p>
+                <p className={styles.item}><span className={styles.item_attribute}>Have work:&nbsp;</span>{props.profile.lookingForAJob === true ? 'No' : 'Yes'}</p>
+                <p className={styles.item}><span className={styles.item_attribute}>Status:&nbsp;</span><AboutUserStatus status="I'm good, at least i think so..." /></p>
+                <p className={styles.item}><span className={styles.item_attribute}>Github:&nbsp;</span>{props.profile.contacts.github}</p>
             </div>
         </div>
     );
