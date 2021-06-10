@@ -8,13 +8,13 @@ class AboutUserStatus extends React.Component {
         editMode : false,
     }
 
-    activateEditMode() {
+    activateEditMode = () => {
         this.setState({
             editMode : true
         })
     }
 
-    disableEditMode() {
+    disableEditMode = () => {
         this.setState({
             editMode : false,
         })
@@ -24,7 +24,7 @@ class AboutUserStatus extends React.Component {
         return(
             <div className={styles.statusWrapper}>
                 {!this.state.editMode &&
-                    <p onDoubleClick={this.activateEditMode.bind(this)} className={styles.status}>{this.props.status}</p>
+                    <p onDoubleClick={this.activateEditMode} className={styles.status}>{this.props.status}</p>
                 }
 
                 {this.state.editMode &&
@@ -32,7 +32,7 @@ class AboutUserStatus extends React.Component {
                         type="text"
                         className={styles.statusInput} 
                         value={this.props.status}
-                        onBlur={this.disableEditMode.bind(this)}
+                        onBlur={this.disableEditMode}
                         onFocus={(e) => {e.target.select()}}
                     />
                 }
