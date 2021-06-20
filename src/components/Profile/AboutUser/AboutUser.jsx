@@ -16,7 +16,7 @@ const AboutUser = (props) => {
             <div className={styles.information}>
                 <h1 className={styles.user__name}>{props.profile.fullName}</h1>
                 <p className={styles.item}><span className={styles.item_attribute}>Have work:&nbsp;</span>{props.profile.lookingForAJob === true ? 'No' : 'Yes'}</p>
-                <p className={styles.item}><span className={styles.item_attribute}>Status:&nbsp;</span><AboutUserStatus status="I'm good, at least i think so..." /></p>
+                <p className={styles.item}><span className={styles.item_attribute}>Status:&nbsp;</span><AboutUserStatus status="" /></p>
                 <p className={styles.item}><span className={styles.item_attribute}>Github:&nbsp;</span>{props.profile.contacts.github}</p>
             </div>
         </div>

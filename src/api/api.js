@@ -13,7 +13,8 @@ export const usersAPI = {
     },
     
     getProfile(userId) {
-        return instance.get(`profile/${userId}`).then(response => response.data)
+        console.warn('Obsolete method. Please use the new one!');
+        return profileAPI.getProfile(userId)
     },
 
     unFollow(userId) {
@@ -24,6 +25,20 @@ export const usersAPI = {
         return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`).then(response => response.data)
     }
 };
+
+export const profileAPI = {
+    getProfile(userId) {
+        return instance.get(`profile/${userId}`).then(response => response.data)
+    },
+
+    getStatus(userId) {
+        return instance.get('profile/status/' + userId)
+    },
+
+    getStatus(status) {
+        return instance.put('profile/status/', { status: status });
+    }
+}
 
 export const authAPI = {
     getAuthData() {
