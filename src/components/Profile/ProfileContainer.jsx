@@ -9,6 +9,9 @@ import Profile from './Profile';
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
+        if (!userId) {
+            userId = 17404;
+        }
         this.props.getProfileThunk(userId);
         this.props.getStatus(userId);
     }
@@ -16,7 +19,7 @@ class ProfileContainer extends React.Component {
     render() {
 
         return(
-            <Profile profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus}/>
+            <Profile profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />
         );
     }
 }
