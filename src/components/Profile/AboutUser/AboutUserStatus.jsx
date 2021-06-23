@@ -40,7 +40,7 @@ class AboutUserStatus extends React.Component {
         return(
             <div className={styles.statusWrapper}>
                 {!this.state.editMode &&
-                    <p onClick={this.activateEditMode} className={styles.status}>
+                    <p onDoubleClick={this.activateEditMode} className={styles.status}>
                         {this.props.status}
                     </p>
                 }
