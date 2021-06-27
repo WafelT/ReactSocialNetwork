@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const CHANGE_INPUT_MESSAGE_TEXT = 'CHANGE-INPUT-MESSAGE-TEXT';
 
 let initialState = {
     dialogsData : [
@@ -35,8 +34,6 @@ let initialState = {
         {id : 7, name: 'Wiliam Amswer', avatar : 'https://www.setaswall.com/wp-content/uploads/2017/05/Minimal-Phone-Wallpaper-010-1080x2340-945x2048.jpg'},
         {id : 8, name: 'David Patterson', avatar : 'https://www.setaswall.com/wp-content/uploads/2017/05/Minimal-Phone-Wallpaper-010-1080x2340-945x2048.jpg'},
     ],
-
-    inputMessagesText : '',
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -44,7 +41,7 @@ const messagesReducer = (state = initialState, action) => {
         case ADD_MESSAGE : {
             let newMessage = {
                 id : 5,
-                message : state.inputMessagesText,
+                message : action.messageInput,
                 avatar  : 'https://www.setaswall.com/wp-content/uploads/2017/05/Minimal-Phone-Wallpaper-010-1080x2340-945x2048.jpg',
             }
             
@@ -54,21 +51,14 @@ const messagesReducer = (state = initialState, action) => {
             stateCopy.inputMessagesText = '';
             return stateCopy;
         }
-        case CHANGE_INPUT_MESSAGE_TEXT : {
-            return { ...state, inputMessagesText : action.symbol }
-        }
         default : 
             return state;
     }
 }
 
-export let addMessageActionCreator = () => ({
+export let addMessageActionCreator = (messageInput) => ({
     type : ADD_MESSAGE,
-});
-
-export let changeInputMessageTextActionCreator = (text) => ({
-    type : CHANGE_INPUT_MESSAGE_TEXT,
-    symbol : text,
+    messageInput
 });
 
 export default messagesReducer;

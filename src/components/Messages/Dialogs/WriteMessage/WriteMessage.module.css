@@ -4,14 +4,21 @@
 
 .write__message {
     width: 464px;
+    height: 73px;
+    height: 38px !important;
     padding: 19px 0px 19px 30px;
 
     border: 1px solid var(--black);
     border-radius: 20px;
+    outline: none;
 
     font-size: 25px;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
+}
+
+form ::-webkit-scrollbar {
+    display: none;
 }
 
 .button {
